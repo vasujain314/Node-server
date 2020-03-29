@@ -10,8 +10,8 @@
 
 
 const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://vasujain314:Jainjain@3314@cluster0-nauop.mongodb.net/test?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true });
+const uri = "mongodb+srv://vasujain314:3vAGvcl4GPUXo69W@cluster0-nauop.mongodb.net/test?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true,useUnifiedTopology: true });
 client.connect(err => {
   const collection = client.db("test").collection("devices");
   // perform actions on the collection object
