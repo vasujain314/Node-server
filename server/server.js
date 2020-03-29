@@ -8,6 +8,7 @@ var {mongoose}=require('./db/mongoose.js');
 var {Users}=require('./models/users');
  
 var app=express();
+const port=process.env.PORT || 3000
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ 
     extended: true
@@ -53,7 +54,7 @@ app.post('/login',(req,res)=>{
 	
 })
 
-app.listen(3000,()=>{
+app.listen(port,()=>{
 
-	console.log('started at  port 3000');
+	console.log('started at  port {port}');
 });
