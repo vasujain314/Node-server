@@ -1,5 +1,5 @@
 var mongoose =require('mongoose');
-var Users =mongoose.model('devices',{
+var Users =mongoose.model('users',{
 	email:{
 type:String
 	},
