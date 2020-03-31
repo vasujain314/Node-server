@@ -6,7 +6,9 @@ mongoose.connect('mongodb+srv://vasujain314:3vAGvcl4GPdevicesUXo69W@cluster0-nau
     useNewUrlParser: true
 });
 
+let db = mongoose.connection;
 
+db.once('open', () => console.log('connected to the database'));
 
 
 // const MongoClient = require('mongodb').MongoClient;
