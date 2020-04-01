@@ -30,12 +30,12 @@ app.get('/|home|home.html', (req, res) => {
 	} 
 	else {
 		res.redirect('/home.html');
-        console.log("loggedin");
+        console.log("already loggedin");
     }
 })
 
 app.get('/auth/google/callback', function (req, res) {
-    console.log("we landed ere after sign in");
+    console.log("we landed here after sign in");
 
     const code = req.query.code
     if (code) {
@@ -48,8 +48,8 @@ app.get('/auth/google/callback', function (req, res) {
                 console.log('Successfully authenticated');
                 oAuth2Client.setCredentials(tokens);
 				authed = true;
-				uri='http://localhost:3000/home.html';
-                res.redirect(uri);
+				res.redirect('/home.html');
+				console.log("successfullyy logged in");
             }
         });
     }
