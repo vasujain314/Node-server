@@ -6,12 +6,14 @@ var {Users}=require('./models/users');
 const { google } = require('googleapis');
 const OAuth2Data = require('./google_key.json')
 
+
 const CLIENT_ID = OAuth2Data.web.client_id;
 const CLIENT_SECRET = OAuth2Data.web.client_secret;
 const REDIRECT_URL = OAuth2Data.web.redirect_uris;
 const oAuth2Client = new google.auth.OAuth2(CLIENT_ID, CLIENT_SECRET, REDIRECT_URL)
 
 var authed = false;
+
 
 var app=express();
 const port=process.env.PORT || 3000
@@ -20,12 +22,11 @@ app.use(bodyParser.urlencoded({
     extended: true
 })); 
 app.use(express.static(path.join(__dirname,'/../public')));
-// console.log(REDIRECT_URL);
 
 
 app.get('/|home|home.html', (req, res) => {
     if (!authed) {
-	   url="http://localhost:3000/index.html"
+	   url="/index.html"
        res.redirect(url);
 	} 
 	else {
